@@ -2,7 +2,7 @@ FROM node:18
 
 WORKDIR /app
 
-ENV DATABASE_URL postgresql://postgres:postgres@db:5432/law_tugas1?schema=public
+ENV DATABASE_URL postgresql://postgres:postgres@postgres:5432/law_tugas1?schema=public
 
 # Copies everything
 COPY package*.json ./
@@ -13,6 +13,8 @@ COPY ./src ./src
 RUN npm install
 
 RUN npx prisma generate
+
+RUN npx prisma migrate dev
 
 EXPOSE 3000
 
