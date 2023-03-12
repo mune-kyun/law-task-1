@@ -10,7 +10,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id   Int    @id @default(autoincrement())
-  name String @unique
+model Shio {
+  id          Int      @id @default(autoincrement())
+  isCustom    Boolean  @default(false)
+  name        String   @unique
+  personality String[] @default([])
+  description String   @default("")
+  years       Int[]    @default([])
 }

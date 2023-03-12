@@ -4,22 +4,22 @@ const app = express();
 const port = 3000;
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("Find your chinese zodiac here!, 2006597701");
 });
 
-app.get("/c/:name", async (req, res) => {
-  const { name } = req.params;
-  await prisma.user.create({
-    data: {
-      name: name,
-    },
-  });
+app.get("/shio", async (req, res) => {
+  const shio = await prisma.shio.findMany();
+  res.send(shio);
+});
+
+app.get("/shio/:year", async (req, res) => {
+  const { year } = req.params;
+  // await prisma.user.create({
+  //   data: {
+  //     name: name,
+  //   },
+  // });
   res.send("User created");
-});
-
-app.get("/g", async (req, res) => {
-  const users = await prisma.user.findMany();
-  res.send(users);
 });
 
 app.listen(port, () => {
