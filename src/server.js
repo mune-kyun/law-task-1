@@ -28,6 +28,17 @@ app.get("/shio", async (req, res) => {
   res.send(shio);
 });
 
+app.get("/shio/name/:name", async (req, res) => {
+  const { name } = req.params;
+
+  const shio = await prisma.shio.findFirst({
+    where: {
+      name: name,
+    },
+  });
+  res.send(shio);
+});
+
 app.get("/shio/:year", async (req, res) => {
   let year = parseInt(req.params.year);
   let sign;
