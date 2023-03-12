@@ -1,9 +1,10 @@
 const express = require("express");
+const cors = require("cors");
 const { prisma } = require("./utils.js");
 const app = express();
 const port = 3000;
 
-app.use(express.json());
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("Find your chinese zodiac here!, 2006597701");
