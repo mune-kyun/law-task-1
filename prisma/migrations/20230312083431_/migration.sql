@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Shio" ADD COLUMN     "modResult" INTEGER NOT NULL DEFAULT 0;

@@ -17,4 +17,5 @@ model Shio {
   personality String[] @default([])
   description String   @default("")
   years       Int[]    @default([])
+  modResult   Int      @default(0)
 }
